@@ -49,6 +49,7 @@ def get_wallpapers(how_many_to_fetch=1):
     args["atleast"] = "1920x1080"
     args["ratios"] = "16x9"
     args["sorting"] = "random"
+    args["colors"] = "660000,990000,cc0000,cc3333,ea4c88,993399,663399,333399,0066cc,0099cc,66cccc"
 
     fetched = []
 
