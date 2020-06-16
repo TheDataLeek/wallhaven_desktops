@@ -25,7 +25,7 @@ def main():
     logger.remove()  # remove default stderr
     file_handler = logger.add(LOGFILE.open("w"), level="DEBUG")
 
-    linux_command = 'feh --bg-center '
+    linux_command = 'gsettings set org.cinnamon.desktop.background picture-uri file://'
     while True:
         latest = get_wallpapers()
         full_command = linux_command + str(random.choice(latest).absolute())
@@ -42,14 +42,27 @@ def get_wallpapers(how_many_to_fetch=1):
     if api_key:
         args["apikey"] = api_key
 
-    args["q"] = "cyberpunk"
+    colors = [
+       "#660000",
+       "#990000",
+       "#cc0000",
+       "#cc3333",
+       "#ea4c88",
+       "#993399",
+       "#663399",
+       "#333399",
+       "#0066cc",
+       "#0099cc",
+       "#66cccc",
+    ]
 
+    # args["q"] = "cyberpunk"
     args["categories"] = "111"
     args["purity"] = "111"
     args["atleast"] = "1920x1080"
     args["ratios"] = "16x9"
-    args["sorting"] = "random"
-    args["colors"] = "660000,990000,cc0000,cc3333,ea4c88,993399,663399,333399,0066cc,0099cc,66cccc"
+    args["sorting"] = "toplist"
+    args["colors"] = [c[1:] for c in colors]
 
     fetched = []
 
