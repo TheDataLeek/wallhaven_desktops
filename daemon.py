@@ -56,7 +56,7 @@ def get_wallpapers(how_many_to_fetch=1):
        "#66cccc",
     ]
 
-    # args["q"] = "cyberpunk"
+    args["q"] = "cyberpunk"
     args["categories"] = "111"
     args["purity"] = "111"
     args["atleast"] = "1920x1080"
